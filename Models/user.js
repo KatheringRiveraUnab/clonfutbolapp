@@ -3,6 +3,10 @@ import {db} from '../mongodb.js'
 
 const userSchema = new mongoose.Schema(
     {
+        id:{
+            type: Number, 
+            require: true
+        },
         name:{
             type: String,
             require: true
