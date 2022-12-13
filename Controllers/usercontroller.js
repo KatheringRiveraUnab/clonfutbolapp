@@ -1,4 +1,4 @@
-import {user} from '../Models/user.js'
+import {user} from '../Models/User.js'
 
 //guardar un usuario en la base de datos
 export const signuser = (req, res) => {
