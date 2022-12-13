@@ -3,10 +3,9 @@ import {signuser} from '../Controllers/usercontroller.js';
 import {db} from '../mongodb.js';
 export const router = express.Router();
 
+//Rutas usuarios
+router.get('/signuser', signuser);
 
-router.get('/', (req, res) => {
-    res.send('Welcome from the root');
-})
 router.get('/user', (req, res) => {
     res.send('Getting User data');
 });
