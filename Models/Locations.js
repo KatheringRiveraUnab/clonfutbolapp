@@ -7,12 +7,6 @@ const locationsSchema = new mongoose.Schema(
             type: String,
             require: true
         },
-        description:{
-            type: String,
-            require: true,
-            lowercase: true,
-            unique: true
-        },
         address:{
             type: String,
             require: true
@@ -23,5 +17,5 @@ const locationsSchema = new mongoose.Schema(
         versionKey: false,
 });
 
-export const user= mongoose.model('users', userSchema);
-export default user;
+export const location = mongoose.model('location', locationSchema);
+export default location;
