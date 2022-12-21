@@ -5,9 +5,11 @@ export const createEvent= (req, res) => {
 };
 
 //Mostrar la informacion de los eventos
-export const getEvent = (req, res) => {
-	event.find().then((data) => res.json(data)).catch((error) =>res.json({message: error}));
+export const getEvent =  async (req, res) => {
+	await event.find({}).then((data) => res.json(data)).catch((error) =>res.json({message: error}));
 };
+
+
 
 //Mostrar una evento por name 
 export const getEventByName = (req, res) => {
@@ -20,6 +22,7 @@ export const delEvent = (req, res) => {
 	const {id} = req.params;
 	event.deleteOne({_id: id }).then((data) => res.json(data)).catch((error) => res.json({message: error}));
 };
+
 
 //actualizar una ubicacion
 

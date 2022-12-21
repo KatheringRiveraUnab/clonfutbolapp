@@ -3,7 +3,7 @@ import {db} from '../mongodb.js';
 
 const teamSchema = new mongoose.Schema(
 	{
-		_id: mongoose.Schema.Types.ObjectId,
+		
 		name: { type: String, required: true},
 		status: { type: Boolean},
 		score: { type: Number},

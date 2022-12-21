@@ -1,10 +1,8 @@
-import { mongoose } from 'mongoose';
+import { mongoose, Schema } from 'mongoose';
 import {db} from '../mongodb.js';
 
 const eventSchema = new mongoose.Schema(
 	{
-		_id: {Type: mongoose.Schema.Types.ObjectId},
-
 		name:{
 			type: String,
 			require: true
@@ -13,6 +11,10 @@ const eventSchema = new mongoose.Schema(
 			type: Date,
 			require: true,
 		},
+		teams:[{
+			type: Schema.Types.ObjectId,
+			ref: 'team'
+		}]
 	}
 
 	,
