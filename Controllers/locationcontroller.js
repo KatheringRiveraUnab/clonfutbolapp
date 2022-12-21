@@ -1,4 +1,4 @@
-import location from "../Models/Locations";
+import location from "../Models/Locations.js";
 
 //guardar una ubicacion en la base de datos
 export const signLocation = (req, res) => {

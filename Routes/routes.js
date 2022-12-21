@@ -2,6 +2,7 @@ import express from 'express';
 import signLocation, { delLocation, getLocation, getLocationById, upLocation } from '../Controllers/locationcontroller.js';
 import signTeam, { getTeam, getTeamById, upTeam, delTeam } from '../Controllers/teamcontroller.js';
 import {signuser, getUser, getUserById, upUser, delUser} from '../Controllers/usercontroller.js';
+import {createEvent, getEvent, getEventByName, upEvent, delEvent} from '../Controllers/eventController.js';
 import {db} from '../mongodb.js';
 
 export const router = express.Router();
@@ -42,3 +43,7 @@ router.put('/location/:id', upLocation);
 //Borrar un equipo
 router.delete('/location/:id', delLocation);
 export default router;
+
+//Rutas Eventos
+router.post('/event', createEvent);
+router.get('/events', getEvent);

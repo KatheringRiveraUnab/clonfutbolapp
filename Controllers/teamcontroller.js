@@ -1,4 +1,4 @@
-import { team } from "../Models/Team";
+import { team } from "../Models/Team.js";
 
 //guardar un equipo en la base de datos
 export const signTeam = (req, res) => {

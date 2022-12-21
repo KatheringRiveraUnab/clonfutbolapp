@@ -1,8 +1,9 @@
-import mongoose, { Mongoose } from 'mongoose'
+import mongoose, { Mongoose, Schema } from 'mongoose'
 import {db} from '../mongodb.js'
 
 const teamSchema = new mongoose.Schema(
     {
+        _id: Schema.Types.ObjectId,
         name: { type: String, required: true},
         status: { type: Boolean},
         score: { type: Number}
