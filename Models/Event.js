@@ -1,28 +1,25 @@
-import { mongoose } from 'mongoose'
-import {db} from '../mongodb.js'
-import team from './Team.js';
+import { mongoose } from 'mongoose';
+import {db} from '../mongodb.js';
 
 const eventSchema = new mongoose.Schema(
-    {
-        name:{
-            type: String,
-            require: true
-        },
-        date:{
-            type: Date,
-            require: true,
-        },
+	{
+		_id: {Type: mongoose.Schema.Types.ObjectId},
 
-        team1:{type: mongoose.Schema.Types.ObjectId, ref: 'team'},
-        
-        team2:{type: Schema.Types.ObjectId, ref: 'team'}
-    }
+		name:{
+			type: String,
+			require: true
+		},
+		date:{
+			type: Date,
+			require: true,
+		},
+	}
 
-    ,
-    {   
-        timestamps:true,
-        versionKey: false,
-});
+	,
+	{   
+		timestamps:true,
+		versionKey: false,
+	});
 
 export const event = mongoose.model('event', eventSchema);
 export default event;
