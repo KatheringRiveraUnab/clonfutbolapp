@@ -1,9 +1,8 @@
-import bcrypt from 'bcrypt';
-import user from '../models/User.js';
+import {user} from '../Models/User.js';
 import {generateToken} from '../config/jwtfunciones.js';
 import dotenv from 'dotenv';
 dotenv.config();
-import jwt from 'jsonwebtoken';
+//import jwt from 'jsonwebtoken';
 
 export const login = async (req,res) => {
 	try {
@@ -28,12 +27,12 @@ export const login = async (req,res) => {
 
 			//     return res.json({ token, expiresIn });
 		} else {
-			return res.status(403).json({message: "usuario y contraseña incorrecta" }); 
+			return res.status(403).json({message: 'usuario y contraseña incorrecta' }); 
 		}
        
 	} catch (error) {
 		console.log(error);
-		return res.status(500).json({ error: "Error de servidor" });
+		return res.status(500).json({ error: 'Error de servidor' });
 	}
 
 };

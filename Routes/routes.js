@@ -3,7 +3,7 @@ import {signLocation,  delLocation, getLocation, getLocationById, upLocation } f
 import { signTeam, getTeam, getTeamById, upTeam, delTeam } from '../Controllers/teamcontroller.js';
 import {signuser, getUser, getUserById, upUser, delUser} from '../Controllers/usercontroller.js';
 import {createEvent, getEvent, delEvent, upEvent} from '../Controllers/eventController.js';
-import {requireToken } from '../Middleware/auth.js';
+//import {requireToken} from '../Middleware/auth.js';
 import {login} from '../Controllers/loginController.js';
 
 export const router = express.Router();
