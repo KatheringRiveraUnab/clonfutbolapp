@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { tokenVerificationErrors } from '../configs/jwtfunciones.js';
+import { tokenVerificationErrors } from '../config/jwtfunciones.js';
 
 export const requireToken = (req, res, next) => {
   

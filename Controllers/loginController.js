@@ -1,22 +1,22 @@
 import bcrypt from 'bcrypt';
-import usuario from '../models/usuario.js';
-import {generateToken} from '../configs/jwtfunciones.js';
+import user from '../models/User.js';
+import {generateToken} from '../config/jwtfunciones.js';
 import dotenv from 'dotenv';
 dotenv.config();
 import jwt from 'jsonwebtoken';
 
-export const userLogin = async (req,res) => {
+export const login = async (req,res) => {
 	try {
-		const { correo, password } = req.body;
+		const { email, password } = req.body;
 
-		let user = await usuario.findOne({ correo });
-		if (!user)
+		let usuario = await user.findOne({ email });
+		if (!usuario)
 			return res.status(403).json({ error: 'No existe este correo' });
-		const respuestaPassword = await  usuario.login(correo, password );
-		// const respuestaPassword = await user.comparePassword(password);
+		const respuestaPassword = await  user.login(email, password);
+		//const respuestaPassword = await user.comparePassword(password);
 		if (respuestaPassword){
 			//aca generamos nuestro token JWT
-			const token = generateToken(usuario._id);
+			const token = generateToken(user._id);
 			return res.json({ token });
 
 			//aca configuramos el token en una cookie
@@ -28,14 +28,14 @@ export const userLogin = async (req,res) => {
 
 			//     return res.json({ token, expiresIn });
 		} else {
-			return res.status(403).json({message: 'usuario y contraseña incorrecta' }); 
+			return res.status(403).json({message: "usuario y contraseña incorrecta" }); 
 		}
        
 	} catch (error) {
 		console.log(error);
-		return res.status(500).json({ error: 'Error de servidor' });
+		return res.status(500).json({ error: "Error de servidor" });
 	}
 
 };
 
-export default userLogin; 
+export default login; 

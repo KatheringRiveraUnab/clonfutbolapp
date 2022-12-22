@@ -44,3 +44,5 @@ export const tokenVerificationErrors = {
 	'No Bearer': 'Utiliza formato Bearer',
 	'jwt malformed': 'JWT formato no válido',
 };
+
+export default generateToken;

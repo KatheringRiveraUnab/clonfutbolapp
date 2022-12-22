@@ -1,17 +1,18 @@
 import express from 'express';
-import signLocation, { delLocation, getLocation, getLocationById, upLocation } from '../Controllers/locationcontroller.js';
-import signTeam, { getTeam, getTeamById, upTeam, delTeam } from '../Controllers/teamcontroller.js';
+import {signLocation,  delLocation, getLocation, getLocationById, upLocation } from '../Controllers/locationcontroller.js';
+import { signTeam, getTeam, getTeamById, upTeam, delTeam } from '../Controllers/teamcontroller.js';
 import {signuser, getUser, getUserById, upUser, delUser} from '../Controllers/usercontroller.js';
 import {createEvent, getEvent, delEvent, upEvent} from '../Controllers/eventController.js';
-import {db} from '../mongodb.js';
+import {requireToken } from '../Middleware/auth.js';
+import {login} from '../Controllers/loginController.js';
 
 export const router = express.Router();
 
 //Rutas usuarios
 //Registrar un usuario
-router.post('/signuser', signuser);
+router.post('/user', signuser);
 //mostrar los usuarios registrados
-router.get('/users', getUser);
+router.get('/user', getUser);
 //Mostrar un usuario por id
 router.get('/user/:id', getUserById);
 //actualizar un usuario
@@ -23,7 +24,7 @@ router.delete('/user/:id', delUser);
 //Regristrar un Equipo
 router.post('/team', signTeam);
 //Mostrar todos los equipos
-router.get('/teams',getTeam);
+router.get('/team',getTeam);
 //Mostrar un equipo por id
 router.get('/team/:id', getTeamById);
 //actualizar un equipo
@@ -51,4 +52,4 @@ router.put('/events/:id', upEvent);
 router.delete('/events/:id', delEvent);
 
 //login
-router.post('/singIn', userLogin);
+router.post('/login', login);

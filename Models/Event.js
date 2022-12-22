@@ -1,5 +1,4 @@
 import { mongoose, Schema } from 'mongoose';
-import {db} from '../mongodb.js';
 
 const eventSchema = new mongoose.Schema(
 	{

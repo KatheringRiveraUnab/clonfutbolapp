@@ -6,10 +6,8 @@ export const createEvent= (req, res) => {
 
 //Mostrar la informacion de los eventos
 export const getEvent =  async (req, res) => {
-	await event.find({}).then((data) => res.json(data)).catch((error) =>res.json({message: error}));
+	await event.find({}).populate('teams', {_id: 0, name: 1, score: 1}).then((data) => res.json(data).catch((error) =>res.json({message: error})));
 };
-
-
 
 //Mostrar una evento por name 
 export const getEventByName = (req, res) => {

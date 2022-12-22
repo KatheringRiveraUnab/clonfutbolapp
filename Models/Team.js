@@ -1,5 +1,4 @@
-import { mongoose} from 'mongoose';
-import {db} from '../mongodb.js';
+import { mongoose, Schema} from 'mongoose';
 
 const teamSchema = new mongoose.Schema(
 	{
@@ -7,7 +6,7 @@ const teamSchema = new mongoose.Schema(
 		name: { type: String, required: true},
 		status: { type: Boolean},
 		score: { type: Number},
-		gol:{ type: Number}
+		category:[{type: Schema.Types.ObjectId, ref: 'event'}]
 	},
 	{   
 		timestamps:true,
